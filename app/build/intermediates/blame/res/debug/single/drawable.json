@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\qb_scan_card_button.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable\\qb_scan_card_button.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\qb_scan_flash_button.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable\\qb_scan_flash_button.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\qb_scan_album_button.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable\\qb_scan_album_button.xml"
+    }
+]

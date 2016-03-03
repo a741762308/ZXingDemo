@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_capture.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\layout\\activity_capture.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_result.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\layout\\activity_result.xml"
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qcode.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qcode.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_photo_down.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_photo_down.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_light.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_light.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_bg.9.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_bg.9.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_photo_nor.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_photo_nor.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_myqrcode_nor.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_myqrcode_nor.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_flash_disable.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_flash_disable.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_qrcode_template_auth_troop.jpg",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_qrcode_template_auth_troop.jpg"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_flash_nor.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_flash_nor.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_myqrcode_down.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_myqrcode_down.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_btn_flash_down.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_btn_flash_down.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zw.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\zw.png"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qb_scan_bar.9.png",
+        "source": "E:\\qishun\\Android\\StudioProjects\\ZxingDemo\\app\\src\\main\\res\\drawable-hdpi\\qb_scan_bar.9.png"
+    }
+]
