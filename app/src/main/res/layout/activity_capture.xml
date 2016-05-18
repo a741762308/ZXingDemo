@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    tools:context="com.jsqix.zxingdemo.CaptureActivity">
+    tools:context=".activity.CaptureActivity">
 
     <SurfaceView
         android:id="@+id/capture_preview"
@@ -43,6 +43,7 @@
                 android:src="@drawable/scan_line" />
         </RelativeLayout>
 
+
         <ImageView
             android:id="@+id/capture_mask_left"
             android:layout_width="match_parent"
@@ -62,8 +63,7 @@
             android:background="@drawable/shadow"
             android:padding="40dp" />
 
-
-        <ImageView
+        <LinearLayout
             android:id="@+id/capture_mask_right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -71,7 +71,24 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/capture_mask_top"
             android:layout_toRightOf="@+id/capture_crop_view"
-            android:background="@drawable/shadow" />
+            android:background="@drawable/shadow"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/zoomOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="放大"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/zoomIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="缩小"
+                android:textColor="#ffffff" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout

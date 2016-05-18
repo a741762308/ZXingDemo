@@ -54,12 +54,13 @@ public final class CaptureActivity extends Activity implements
     private ImageView scanLine;
     private static final int REQUEST_CODE_OPEN_ALBUM = 0x100;
     private boolean hasSurface;
-    private Button photoBtn, myQRBtn;
-    private Button flashBtn;
+    private Button photoBtn, myQRBtn, flashBtn;
+    private Button zoomIn, zoomOut;
     private LinearLayout progress;
     boolean flashOn; // 是否开启闪光灯
 
     String photo_path;//二维码图片路径
+    int zoomValue = 1, zoomStep = 1;
 
     private Rect mCropRect = null;
 
@@ -95,6 +96,11 @@ public final class CaptureActivity extends Activity implements
         inactivityTimer = new InactivityTimer(this);
         beepManager = new BeepManager(this);
 
+        zoomIn = (Button) findViewById(R.id.zoomIn);
+        zoomOut = (Button) findViewById(R.id.zoomOut);
+        zoomIn.setOnClickListener(new ZoomClick());
+        zoomOut.setOnClickListener(new ZoomClick());
+
         photoBtn = (Button) findViewById(R.id.photoBtn);
         myQRBtn = (Button) findViewById(R.id.myQRBtn);
         flashBtn = (Button) findViewById(R.id.flashBtn);
@@ -113,6 +119,31 @@ public final class CaptureActivity extends Activity implements
         animation.setRepeatMode(Animation.RESTART);
         scanLine.startAnimation(animation);
     }
+
+    class ZoomClick implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.zoomIn:
+                    if (zoomValue > 1) {
+                        zoomValue -= zoomStep;
+                    } else {
+                        Toast.makeText(CaptureActivity.this, "不能在缩小了", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case R.id.zoomOut:
+                    if (zoomValue < 5) {
+                        zoomValue += zoomStep;
+                    } else {
+                        Toast.makeText(CaptureActivity.this, "不能在放大了", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+            }
+            cameraManager.get().startSmoothZoom(zoomValue);
+        }
+    }
+
     class MyClick implements View.OnClickListener {
 
         @Override
@@ -169,7 +200,7 @@ public final class CaptureActivity extends Activity implements
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CODE_OPEN_ALBUM:
-                    String[] proj = { MediaStore.Images.Media.DATA };
+                    String[] proj = {MediaStore.Images.Media.DATA};
                     // 获取选中图片的路径
                     Cursor cursor = getContentResolver().query(data.getData(),
                             proj, null, null, null);
@@ -226,7 +257,6 @@ public final class CaptureActivity extends Activity implements
         }
 
     }
-
 
 
     @Override
@@ -306,11 +336,8 @@ public final class CaptureActivity extends Activity implements
      * A valid barcode has been found, so give an indication of success and show
      * the results.
      *
-     * @param rawResult
-     *            The contents of the barcode.
-     *
-     * @param bundle
-     *            The extras
+     * @param rawResult The contents of the barcode.
+     * @param bundle    The extras
      */
     public void handleDecode(Result rawResult, Bundle bundle) {
         inactivityTimer.onActivity();
@@ -334,7 +361,7 @@ public final class CaptureActivity extends Activity implements
             return;
         }
         try {
-            cameraManager.openDriver(surfaceHolder,flashOn);
+            cameraManager.openDriver(surfaceHolder, flashOn);
             // Creating the handler starts the preview, which can also throw a
             // RuntimeException.
             if (handler == null) {
