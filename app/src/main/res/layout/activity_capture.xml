@@ -75,19 +75,38 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/zoomOut"
+            <LinearLayout
+                android:id="@+id/zoom_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="放大"
-                android:textColor="#ffffff" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/zoomIn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="缩小"
-                android:textColor="#ffffff" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="+"
+                    android:textColor="#ffffff" />
+
+                <com.jsqix.zxing.view.VerticalSeekBar
+                    android:id="@+id/seek_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:progressDrawable="@drawable/player_setting_bright_progressbar"
+                    android:thumb="@drawable/player_settings_bright_thumb" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="-"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

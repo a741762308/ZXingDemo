@@ -10,7 +10,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.jsqix.zxing.R;
-import com.jsqix.zxing.decode.DecodeThread;
+import com.zxing.decode.DecodeThread;
 
 
 public class ResultActivity extends Activity {

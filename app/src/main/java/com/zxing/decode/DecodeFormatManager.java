@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jsqix.zxing.decode;
+package com.zxing.decode;
 
 import com.google.zxing.BarcodeFormat;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jsqix.zxing.utils;
+package com.zxing.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

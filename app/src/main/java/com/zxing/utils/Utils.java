@@ -1,4 +1,4 @@
-package com.jsqix.zxing.utils;
+package com.zxing.utils;
 
 import android.content.ContentUris;
 import android.content.Context;

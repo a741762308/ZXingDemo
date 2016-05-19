@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,23 +24,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
 import com.jsqix.zxing.R;
-import com.jsqix.zxing.camera.CameraManager;
-import com.jsqix.zxing.decode.DecodeThread;
-import com.jsqix.zxing.utils.BeepManager;
-import com.jsqix.zxing.utils.CaptureActivityHandler;
-import com.jsqix.zxing.utils.InactivityTimer;
-import com.jsqix.zxing.utils.ScanningImageTools;
-import com.jsqix.zxing.utils.Utils;
+import com.jsqix.zxing.view.VerticalSeekBar;
+import com.zxing.camera.CameraManager;
+import com.zxing.decode.DecodeThread;
+import com.zxing.utils.BeepManager;
+import com.zxing.utils.CaptureActivityHandler;
+import com.zxing.utils.InactivityTimer;
+import com.zxing.utils.ScanningImageTools;
+import com.zxing.utils.Utils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 
 public final class CaptureActivity extends Activity implements
-        SurfaceHolder.Callback {
+        SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
 
     private static final String TAG = CaptureActivity.class.getSimpleName();
 
@@ -55,12 +58,13 @@ public final class CaptureActivity extends Activity implements
     private static final int REQUEST_CODE_OPEN_ALBUM = 0x100;
     private boolean hasSurface;
     private Button photoBtn, myQRBtn, flashBtn;
-    private Button zoomIn, zoomOut;
+    private LinearLayout zoomLayout;
+    private VerticalSeekBar seekBar;
     private LinearLayout progress;
     boolean flashOn; // 是否开启闪光灯
 
     String photo_path;//二维码图片路径
-    int zoomValue = 1, zoomStep = 1;
+    int zoomValue = 0, maxZoom = 10;
 
     private Rect mCropRect = null;
 
@@ -96,10 +100,9 @@ public final class CaptureActivity extends Activity implements
         inactivityTimer = new InactivityTimer(this);
         beepManager = new BeepManager(this);
 
-        zoomIn = (Button) findViewById(R.id.zoomIn);
-        zoomOut = (Button) findViewById(R.id.zoomOut);
-        zoomIn.setOnClickListener(new ZoomClick());
-        zoomOut.setOnClickListener(new ZoomClick());
+        zoomLayout = (LinearLayout) findViewById(R.id.zoom_layout);
+        seekBar = (VerticalSeekBar) findViewById(R.id.seek_bar);
+        seekBar.setOnSeekBarChangeListener(this);
 
         photoBtn = (Button) findViewById(R.id.photoBtn);
         myQRBtn = (Button) findViewById(R.id.myQRBtn);
@@ -120,28 +123,19 @@ public final class CaptureActivity extends Activity implements
         scanLine.startAnimation(animation);
     }
 
-    class ZoomClick implements View.OnClickListener {
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        setZoom(progress);
+    }
 
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.zoomIn:
-                    if (zoomValue > 1) {
-                        zoomValue -= zoomStep;
-                    } else {
-                        Toast.makeText(CaptureActivity.this, "不能在缩小了", Toast.LENGTH_LONG).show();
-                    }
-                    break;
-                case R.id.zoomOut:
-                    if (zoomValue < 5) {
-                        zoomValue += zoomStep;
-                    } else {
-                        Toast.makeText(CaptureActivity.this, "不能在放大了", Toast.LENGTH_LONG).show();
-                    }
-                    break;
-            }
-            cameraManager.get().startSmoothZoom(zoomValue);
-        }
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 
     class MyClick implements View.OnClickListener {
@@ -370,6 +364,16 @@ public final class CaptureActivity extends Activity implements
             }
 
             initCrop();
+
+            //是否支持变焦
+            int maxzoom = cameraManager.get().getParameters().getMaxZoom();
+            if (maxzoom != 0 && cameraManager.get().getParameters().isZoomSupported()) {
+                zoomLayout.setVisibility(View.VISIBLE);
+                this.maxZoom = maxzoom > this.maxZoom ? maxZoom : maxzoom;
+                setZoom(seekBar.getProgress());
+            } else {
+                zoomLayout.setVisibility(View.GONE);
+            }
         } catch (IOException ioe) {
             Log.w(TAG, ioe);
             displayFrameworkBugMessageAndExit();
@@ -379,6 +383,14 @@ public final class CaptureActivity extends Activity implements
             Log.w(TAG, "Unexpected error initializing camera", e);
             displayFrameworkBugMessageAndExit();
         }
+    }
+
+    //设置摄像头缩放
+    private void setZoom(int progress) {
+        this.zoomValue = (int) (progress / 100.0 * this.maxZoom);
+        Camera.Parameters parameters = cameraManager.get().getParameters();
+        parameters.setZoom(zoomValue);
+        cameraManager.get().setParameters(parameters);
     }
 
     private void displayFrameworkBugMessageAndExit() {

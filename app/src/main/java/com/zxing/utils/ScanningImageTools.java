@@ -1,10 +1,4 @@
-package com.jsqix.zxing.utils;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
-import java.util.Hashtable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+package com.zxing.utils;
 
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
@@ -18,6 +12,12 @@ import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
+
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Hashtable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ScanningImageTools {
 

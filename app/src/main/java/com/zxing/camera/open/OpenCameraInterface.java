@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jsqix.zxing.camera.open;
+package com.zxing.camera.open;
 
 import android.hardware.Camera;
 import android.util.Log;

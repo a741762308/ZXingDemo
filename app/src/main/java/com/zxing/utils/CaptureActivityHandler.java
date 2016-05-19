@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jsqix.zxing.utils;
+package com.zxing.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,8 +25,8 @@ import android.os.Message;
 import com.google.zxing.Result;
 import com.jsqix.zxing.R;
 import com.jsqix.zxing.activity.CaptureActivity;
-import com.jsqix.zxing.camera.CameraManager;
-import com.jsqix.zxing.decode.DecodeThread;
+import com.zxing.camera.CameraManager;
+import com.zxing.decode.DecodeThread;
 
 /**
  * This class handles all the messaging which comprises the state machine for

@@ -1,11 +1,11 @@
-package com.jsqix.zxing.utils;
-
-import java.io.FileNotFoundException;
+package com.zxing.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.google.zxing.LuminanceSource;
+
+import java.io.FileNotFoundException;
 
 public class RGBLuminanceSource extends LuminanceSource {
 	private final byte[] luminances;
